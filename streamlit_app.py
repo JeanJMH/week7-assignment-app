@@ -30,3 +30,8 @@ feedback_type_chain = (
 )
 
 
+negative_airline_chain = PromptTemplate.from_template("""Respond with sympathies for the inconvenience caused by the airline. Inform the customer that customer service will contact them shortly for resolution.
+
+Text:
+{text}
+""")| llm
