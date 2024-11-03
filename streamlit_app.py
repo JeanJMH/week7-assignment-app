@@ -3,13 +3,15 @@ from langchain.llms import OpenAI
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableBranch
 import langchain
+import os
 
 st.title("Share with us your experience of the latest trip")
 st.write(
     "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
 )
 
-llm = OpenAI(openai_api_key=openai_api_key)
+### Load your API Key
+os.environ["OPENAI_API_KEY"] = st.secrets["OpenAIkey"]
 
 feedback_type_template = """You are team support analyst. Analyze the following feedback text to determine if it inside the following clasification:
 1. Negative experience: for negative experiences caused by the airline's fault (for example lost luggage).
